@@ -1,5 +1,6 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { unstable_ViewTransition as ViewTransition } from 'react'
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -12,12 +13,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${montserrat.className} antialiased block m-0 p-0 font-normal text-base leading-none rounded-none outline-none cursor-auto text-white`}
-      >
-        {children}
-      </body>
-    </html>
+    <ViewTransition>
+      <html lang="en">
+        <body
+          className={`${montserrat.className} antialiased block m-0 p-0 font-normal text-base leading-none rounded-none outline-none cursor-auto text-white`}
+        >
+          {children}
+        </body>
+      </html>
+    </ViewTransition>
   );
 }

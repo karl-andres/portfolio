@@ -8,58 +8,50 @@ import { ExternalLink } from "lucide-react";
 
 gsap.registerPlugin(useGSAP);
 
-export default function Home() {
+export default function Contact() {
   const menuWrapRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [btnText, setBtnText] = useState("( Menu )")
+  const [btnText, setBtnText] = useState("( Menu )");
   const lastIndexRef = useRef(null);
   const offsetEm = 1.6;
 
-  // Make sure menu initially starts off-screen
   useGSAP(() => {
     gsap.set(menuWrapRef.current, { xPercent: 150 });
-  }, [])
+  }, []);
 
-  // Handle menu toggle
   const toggleMenu = () => {
     gsap.killTweensOf(menuWrapRef.current);
-
     if (!isOpen) {
       gsap.to(menuWrapRef.current, {
         xPercent: 0,
         duration: 0.5,
-        ease: "power4.out"
+        ease: "power4.out",
       });
-
-      setBtnText("( Close )")
+      setBtnText("( Close )");
     } else {
       gsap.to(menuWrapRef.current, {
         xPercent: 150,
         duration: 0.5,
-        ease: "power4.in"
+        ease: "power4.in",
       });
-
-      setBtnText("( Menu )")
+      setBtnText("( Menu )");
     }
-
     setIsOpen(!isOpen);
-  }
+  };
 
   const handleHover = (index, e) => {
-    const direction = 
+    const direction =
       lastIndexRef.current === null
         ? -1
         : index > lastIndexRef.current
         ? -1
         : 1;
-
     lastIndexRef.current = index;
-    
     const spans = e.currentTarget.querySelectorAll(".menu-link-text");
     gsap.killTweensOf(spans);
     gsap.fromTo(
       spans,
-      { y: `${ direction * offsetEm}em` },
+      { y: `${direction * offsetEm}em` },
       {
         y: "0em",
         duration: 0.6,
@@ -70,21 +62,21 @@ export default function Home() {
 
   const menuLinks = ["Home", "Projects", "About", "Contact"];
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   return (
     <>
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-[99] flex items-center justify-center w-full p-[2rem] box-border pointer-events-auto">
-        <div className="absolute left-8 font-semibold">Karl Andres</div>
-        <div>HOME</div>
-        <div className="absolute right-8 font-bold">Software Eng @ McMaster University</div>
+        <div className="absolute left-8"><Link href="/">( Back )</Link></div>
+        <div>CONTACT</div>
+        <button className="absolute right-8 hover:cursor-pointer" onClick={toggleMenu}>{btnText}</button>
       </header>
       {/* Main Content */}
-      <div className="flex flex-col items-center justify-center m-0 h-screen w-screen bg-transparent">
-        <div className="shrink">
-          {/* Button */}
-          <button className="hover:cursor-pointer text-white" onClick={toggleMenu}>
-            {btnText}
-          </button>
+      <div className="flex flex-col justify-center m-0 min-h-screen w-screen bg-transparent py-[120px] px-24">
+        <div className="flex items-center justify-center shrink">
           {/* Menu-wrap */}
           <div ref={menuWrapRef} className="fixed top-0 bottom-0 right-0 h-screen min-w-[30rem] w-auto bg-zinc-900/98 z-50 rounded-l-2xl">
             <div className="flex flex-col items-stretch justify-start py-20 bg-transparent">
@@ -101,16 +93,69 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          {/* Contact Form Section */}
+          <div className="max-w-screen">
+            <h1 className="mb-4">/ get in touch</h1>
+            <p className="text-4xl tracking-tighter mb-8">Feel free to reach out for collaborations or just a friendly hello</p>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <input 
+                  type="text" 
+                  placeholder="Name"
+                  className="w-full p-4 bg-zinc-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                />
+              </div>
+              <div>
+                <input 
+                  type="text" 
+                  placeholder="Subject"
+                  className="w-full p-4 bg-zinc-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                />
+              </div>
+              <div>
+                <textarea 
+                  placeholder="Message"
+                  rows="6"
+                  className="w-full p-4 bg-zinc-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                ></textarea>
+              </div>
+              <button 
+                type="submit"
+                className="px-8 py-4 bg-cyan-200 text-black rounded-lg font-medium hover:bg-cyan-300 transition-colors"
+              >
+                Send Message
+              </button>
+            </form>
+
+            <div className="mt-12 flex gap-6">
+              <Link 
+                href="https://www.linkedin.com/in/your-profile" 
+                target="_blank"
+                className="px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                LinkedIn
+              </Link>
+              <Link 
+                href="mailto:andreskarl129@gmail.com"
+                className="px-6 py-3 bg-zinc-700 rounded-lg hover:bg-zinc-600 transition-colors"
+              >
+                Email Me
+              </Link>
+            </div>
+          </div>
         </div>
+
+        {/* Footer */}
         <footer className="fixed bottom-0 left-0 right-0 z-[99] flex items-center justify-center w-full p-[2rem] box-border pointer-events-auto">
-          <div className="absolute left-8">Bottom Left</div>
           <button className="absolute right-8 hover:cursor-pointer text-white">
             <Link rel="noreferrer noopener" href="https://github.com/karl-andres">GitHub</Link>
             <ExternalLink className="inline ml-2" />
           </button>
+          <button className="absolute left-8 hover:cursor-pointer text-white">Bottom Left</button>
         </footer>
       </div>
-
     </>
   );
 }
