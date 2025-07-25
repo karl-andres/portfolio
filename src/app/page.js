@@ -70,21 +70,55 @@ export default function Home() {
 
   const menuLinks = ["Home", "Projects", "About", "Contact"];
 
+  useGSAP(() => {
+  gsap.set(menuWrapRef.current, { xPercent: 150 });
+
+  gsap.from(".hero-text", {
+    y: 60,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+    delay: 0.3
+  });
+
+  gsap.from(".hero-subtext", {
+    y: 40,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+    delay: 0.5
+  });
+
+  gsap.from(".hero-cta", {
+    y: 40,
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+    delay: 0.7
+  });
+  }, []);
+
   return (
     <>
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-[99] flex items-center justify-center w-full p-[2rem] box-border pointer-events-auto">
         <div className="absolute left-8 font-semibold">Karl Andres</div>
         <div>HOME</div>
-        <div className="absolute right-8 font-bold">Software Eng @ McMaster University</div>
+        <button className="absolute right-8 hover:cursor-pointer" onClick={toggleMenu}>{btnText}</button>
       </header>
       {/* Main Content */}
       <div className="flex flex-col items-center justify-center m-0 h-screen w-screen bg-transparent">
         <div className="shrink">
-          {/* Button */}
-          <button className="hover:cursor-pointer text-white" onClick={toggleMenu}>
-            {btnText}
-          </button>
+          <div className="flex flex-col items-center justify-center text-center space-y-4 mt-[-4rem]">
+            <h1 className="text-white text-6xl font-bold hero-text">Hey, I'm Karl</h1>
+            <p className="text-zinc-300 text-xl hero-subtext">I solve real-world problems through software engineering</p>
+            <Link
+              href="/about"
+              className="px-6 py-3 bg-white text-black rounded-full text-lg font-semibold hover:scale-105 transition-transform hero-cta"
+            >
+              About Me
+            </Link>
+          </div>
           {/* Menu-wrap */}
           <div ref={menuWrapRef} className="fixed top-0 bottom-0 right-0 h-screen min-w-[30rem] w-auto bg-zinc-900/98 z-50 rounded-l-2xl">
             <div className="flex flex-col items-stretch justify-start py-20 bg-transparent">
