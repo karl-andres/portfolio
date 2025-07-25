@@ -18,6 +18,8 @@ export default function Home() {
   // Make sure menu initially starts off-screen
   useGSAP(() => {
     gsap.set(menuWrapRef.current, { xPercent: 150 });
+    setIsOpen(false);
+    setBtnText("( Menu )")
   }, [])
 
   // Handle menu toggle
@@ -71,7 +73,6 @@ export default function Home() {
   const menuLinks = ["Home", "Projects", "About", "Contact"];
 
   useGSAP(() => {
-  gsap.set(menuWrapRef.current, { xPercent: 150 });
 
   gsap.from(".hero-text", {
     y: 60,
@@ -110,7 +111,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center m-0 h-screen w-screen bg-transparent">
         <div className="shrink">
           <div className="flex flex-col items-center justify-center text-center space-y-4 mt-[-4rem]">
-            <h1 className="text-white text-6xl font-bold hero-text">Hey, I'm Karl</h1>
+            <h1 className="text-white text-6xl font-bold hero-text">Hey, I&apos;m Karl</h1>
             <p className="text-zinc-300 text-xl hero-subtext">I solve real-world problems through software engineering</p>
             <Link
               href="/about"
