@@ -14,7 +14,7 @@ const projects = [
     links: [
       { icon: <FaGithub />, url: "https://github.com/karl-andres/portfolio", label: "GitHub" },
     ],
-    tech: ["Next.js", "React", "TailwindCSS", "GSAP"],
+    tech: ["Next.js", "TailwindCSS", "GSAP"],
   },
   {
     title: "TuneSpy",
