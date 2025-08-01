@@ -12,6 +12,8 @@ export default function Contact() {
   const menuWrapRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [btnText, setBtnText] = useState("( Menu )");
+  const [form, setForm] = useState({ name: "", subject: "", message: "" });
+  const [status, setStatus] = useState("");
   const lastIndexRef = useRef(null);
   const offsetEm = 1.6;
 
@@ -62,8 +64,30 @@ export default function Contact() {
 
   const menuLinks = ["Home", "Projects", "About", "Contact"];
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setStatus("Sending...");
+    
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form)
+      });
+      if (res.ok) {
+        setStatus("Message sent!");
+        setForm({ name: "", subject: "", message: ""});
+      } else {
+        setStatus("Failed to send.");
+      }
+    } catch {
+      setStatus("Error sending message.")
+    }
   }
 
   return (
@@ -103,6 +127,9 @@ export default function Contact() {
               <div>
                 <input 
                   type="text" 
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
                   placeholder="Name"
                   className="w-full p-4 bg-zinc-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-200"
                 />
@@ -110,12 +137,18 @@ export default function Contact() {
               <div>
                 <input 
                   type="text" 
+                  name="subject"
+                  value={form.subject}
+                  onChange={handleChange}
                   placeholder="Subject"
                   className="w-full p-4 bg-zinc-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-200"
                 />
               </div>
               <div>
                 <textarea 
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
                   placeholder="Message"
                   rows="6"
                   className="w-full p-4 bg-zinc-800/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-200"
@@ -127,11 +160,13 @@ export default function Contact() {
               >
                 Send Message
               </button>
+              {status && <p className="mt-2 text-sm">{status}</p>}
             </form>
 
             <div className="mt-12 flex gap-6">
               <Link 
-                href="https://www.linkedin.com/in/your-profile" 
+                href="https://www.linkedin.com/in/karl-andres/" 
+                rel="noreferrer noopener"
                 target="_blank"
                 className="px-6 py-3 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
               >
@@ -153,7 +188,7 @@ export default function Contact() {
             <Link rel="noreferrer noopener" href="https://github.com/karl-andres">GitHub</Link>
             <ExternalLink className="inline ml-2" />
           </button>
-          <button className="absolute left-8 hover:cursor-pointer text-white">Bottom Left</button>
+          <button className="absolute left-8 hover:cursor-pointer text-white"> </button>
         </footer>
       </div>
     </>

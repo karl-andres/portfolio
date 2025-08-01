@@ -138,7 +138,7 @@ export default function Home() {
           </div>
         </div>
         <footer className="fixed bottom-0 left-0 right-0 z-[99] flex items-center justify-center w-full p-[2rem] box-border pointer-events-auto">
-          <div className="absolute left-8">Bottom Left</div>
+          <div className="absolute left-8"> </div>
           <button className="absolute right-8 hover:cursor-pointer text-white">
             <Link rel="noreferrer noopener" href="https://github.com/karl-andres">GitHub</Link>
             <ExternalLink className="inline ml-2" />

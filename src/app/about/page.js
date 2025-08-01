@@ -115,7 +115,7 @@ export default function About() {
             <Link rel="noreferrer noopener" href="https://github.com/karl-andres">GitHub</Link>
             <ExternalLink className="inline ml-2" />
           </button>
-          <button className="absolute left-8 hover:cursor-pointer text-white">Bottom Left</button>
+          <button className="absolute left-8 hover:cursor-pointer text-white"> </button>
         </footer>
       </div>
     </>
