@@ -123,7 +123,7 @@ export default function Contact() {
             <h1 className="mb-4">/ get in touch</h1>
             <p className="text-4xl tracking-tighter mb-8">Feel free to reach out for collaborations or just a friendly hello</p>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={() => {}} className="space-y-6">
               <div>
                 <input 
                   type="text" 
