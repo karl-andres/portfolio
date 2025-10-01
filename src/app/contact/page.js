@@ -68,27 +68,27 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    setStatus("Sending...");
+  //   setStatus("Sending...");
     
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form)
-      });
-      if (res.ok) {
-        setStatus("Message sent!");
-        setForm({ name: "", subject: "", message: ""});
-      } else {
-        setStatus("Failed to send.");
-      }
-    } catch {
-      setStatus("Error sending message.")
-    }
-  }
+  //   try {
+  //     const res = await fetch("/api/contact", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(form)
+  //     });
+  //     if (res.ok) {
+  //       setStatus("Message sent!");
+  //       setForm({ name: "", subject: "", message: ""});
+  //     } else {
+  //       setStatus("Failed to send.");
+  //     }
+  //   } catch {
+  //     setStatus("Error sending message.")
+  //   }
+  // }
 
   return (
     <>
