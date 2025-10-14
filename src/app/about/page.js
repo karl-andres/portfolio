@@ -90,7 +90,7 @@ export default function About() {
             <section>
               <h1 className="mb-2 text-3xl md:text-5xl tracking-tighter">/ about me</h1>
               <p className="text-lg md:text-2xl tracking-tight mb-4">
-                Hi, I'm Karl, a <span className="font-semibold text-cyan-200">software engineer</span> and student at{" "}
+                Hi, I&apos;m Karl, a <span className="font-semibold text-cyan-200">software engineer</span> and student at{" "}
                 <Link rel="noreferrer noopener" className="font-bold text-cyan-200" href="https://www.mcmaster.ca/">McMaster University</Link>.
                 I love breaking down complex problems and building innovative solutions.
               </p>
@@ -100,7 +100,7 @@ export default function About() {
             </section>
             <section>
               <h2 className="mb-2 text-2xl md:text-4xl tracking-tighter">/ technical skills</h2>
-              <p className="text-lg md:text-2xl tracking-tight mb-4">Technologies I've worked with:</p>
+              <p className="text-lg md:text-2xl tracking-tight mb-4">Technologies I&apos;ve worked with:</p>
               <div className="flex flex-wrap gap-3">
                 {["Javascript", "Python", "Java", "Next.js", "React", "PostgreSQL"].map((tech, idx) => (
                   <span
