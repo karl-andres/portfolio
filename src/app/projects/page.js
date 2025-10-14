@@ -33,6 +33,15 @@ const projects = [
     ],
     tech: ["C++ (Arduino)"]
   },
+  {
+    title: "Musica",
+    description: "AI Music Generation SaaS that generates original music and cover art from text prompts",
+    links: [
+      { icon: <FaGithub />, url: "https://github.com/karl-andres/music-generation-app", label: "Github" },
+      { icon: <FaExternalLinkAlt />, url: "https://music-generation-app-nine.vercel.app/", label: "External" },
+    ],
+    tech: ["Next.js", "AWS", "Modal", "Inngest",  "PostgreSQL with Prisma ORM"]
+  }
 ];
 
 const menuLinks = ["Home", "Projects", "About", "Contact"];

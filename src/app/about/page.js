@@ -72,8 +72,47 @@ export default function About() {
         <button className="absolute right-8 hover:cursor-pointer" onClick={toggleMenu}>{btnText}</button>
       </header>
       {/* Main Content */}
-      <div className="flex flex-col justify-center m-0 min-h-screen w-screen bg-transparent py-[120px] px-24">
-        <div className="flex items-center justify-between shrink">
+      <div className="flex flex-col justify-center m-0 min-h-screen w-screen bg-transparent py-[120px] px-4 md:px-24">
+        <div className="flex flex-col md:flex-row items-center justify-center shrink gap-10 md:gap-20">
+          {/* Image Section */}
+          <div className="w-full md:w-1/3 flex justify-center items-center mb-8 md:mb-0">
+            <Image
+              className="rounded-xl object-cover shadow-lg"
+              src="/me.jpg"
+              alt="Picture of me"
+              width={300}
+              height={400}
+              priority
+            />
+          </div>
+          {/* Writing Section */}
+          <div className="w-full md:w-2/3 flex flex-col gap-8">
+            <section>
+              <h1 className="mb-2 text-3xl md:text-5xl tracking-tighter">/ about me</h1>
+              <p className="text-lg md:text-2xl tracking-tight mb-4">
+                Hi, I'm Karl, a <span className="font-semibold text-cyan-200">software engineer</span> and student at{" "}
+                <Link rel="noreferrer noopener" className="font-bold text-cyan-200" href="https://www.mcmaster.ca/">McMaster University</Link>.
+                I love breaking down complex problems and building innovative solutions.
+              </p>
+              <p className="text-lg md:text-2xl tracking-tight mb-4">
+                Outside of coding, I enjoy playing guitar, video games, and watching anime.
+              </p>
+            </section>
+            <section>
+              <h2 className="mb-2 text-2xl md:text-4xl tracking-tighter">/ technical skills</h2>
+              <p className="text-lg md:text-2xl tracking-tight mb-4">Technologies I've worked with:</p>
+              <div className="flex flex-wrap gap-3">
+                {["Javascript", "Python", "Java", "Next.js", "React", "PostgreSQL"].map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="bg-zinc-700 text-zinc-200 px-4 py-2 rounded-full text-base md:text-lg font-medium"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </section>
+          </div>
           {/* Menu-wrap */}
           <div ref={menuWrapRef} className="fixed top-0 bottom-0 right-0 h-screen min-w-[30rem] w-auto bg-zinc-900/98 z-50 rounded-l-2xl">
             <div className="flex flex-col items-stretch justify-start py-20 bg-transparent">
@@ -90,26 +129,8 @@ export default function About() {
               ))}
             </div>
           </div>
-          {/* Writing Section */}
-          <div className="max-w-[50%]">
-            <h1 className="mb-4">/ about me</h1>
-            <p className="text-4xl tracking-tighter">I am currently a <em>software engineer</em> with a strong interest in problem-solving and technology. I am also a student at <Link rel="noreferrer noopener" className="font-bold text-cyan-200" href="https://www.mcmaster.ca/">McMaster University</Link> pursuing the Software Engineering program. I chose this path because I love the challenge of breaking down complex problems and building innovative solutions.</p>
-            <p className="text-4xl tracking-tighter my-14">Outside of coding, I enjoy playing the guitar, video games, and watching anime.</p>
-
-            <h1 className="mb-4">/ technical skills</h1>
-            <p className="text-4xl tracking-tighter mb-4">These are the list of technologies I have worked with:</p>
-            <ul className="list-disc ml-6">
-              <li className="tracking-tighter text-xl">Javascript</li>
-              <li className="tracking-tighter text-xl">Python</li>
-              <li className="tracking-tighter text-xl">Java</li>
-              <li className="tracking-tighter text-xl">Next.js/React</li>
-            </ul>
-          </div>
-          {/* Image Section */}
-          <div className="flex-1 flex justify-center items-center">
-            <Image className="rounded-xl object-cover"src="/me.jpg" alt="Picture of me" width={500} height={735}/>
-          </div>
         </div>
+        {/* Footer */}
         <footer className="fixed bottom-0 left-0 right-0 z-[99] flex items-center justify-center w-full p-[2rem] box-border pointer-events-auto">
           <button className="absolute right-8 hover:cursor-pointer text-white">
             <Link rel="noreferrer noopener" href="https://github.com/karl-andres">GitHub</Link>
@@ -120,4 +141,4 @@ export default function About() {
       </div>
     </>
   );
-} 
+}
