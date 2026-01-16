@@ -118,7 +118,7 @@ export default function Home() {
         {/* Animated art / gradient blob */}
         {/* <div className="animated-blob" aria-hidden="true" /> */}
         <div className="relative z-10 shrink">
-          <div className="flex flex-col items-center justify-center text-center space-y-5 mt-[-4rem] px-6">
+          <div className="flex flex-col items-center justify-center text-center space-y-5 px-6">
             <h1 className={`${ebGaramond.className} text-white text-4xl sm:text-5xl md:text-6xl tracking-tight hero-text`}>
               hey, karl here
             </h1>
