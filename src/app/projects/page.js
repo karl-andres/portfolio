@@ -9,16 +9,36 @@ import { gsap } from "gsap";
 
 const projects = [
   {
-    title: "Portfolio Website",
-    description: "Code for my portfolio showcasing my work and skills.",
+    title: "Musica (AI Music Studio)",
+    description:
+      "AI music generation SaaS that turns text prompts into original tracks and cover art, built end-to-end for real users.",
     links: [
-      { icon: <FaGithub />, url: "https://github.com/karl-andres/portfolio", label: "GitHub" },
+      { icon: <FaGithub />, url: "https://github.com/karl-andres/music-generation-app", label: "GitHub" },
+      { icon: <FaExternalLinkAlt />, url: "https://music-generation-app-nine.vercel.app/", label: "Live app" },
     ],
-    tech: ["Next.js", "TailwindCSS", "GSAP"],
+    tech: ["Next.js", "AWS", "Modal", "Inngest", "PostgreSQL", "Prisma ORM"],
+  },
+  {
+    title: "FleetGuard",
+    description:
+      "FleetGuard is an end-to-end driver safety platform that uses a mobile scanning app to monitor real-time physiological signals (pulse and breathing rate), analyzes them in a backend to assess driver fitness (FIT vs UNFIT), and presents actionable insights to fleet managers through a centralized dashboard.",
+    links: [
+      { icon: <FaGithub />, url: "https://github.com/karl-andres/DeltaHacks-2026", label: "GitHub" },
+    ],
+    tech: ["React", "FastAPI", "PostgreSQL", "Swift", "Presage"],
+  },
+  {
+    title: "FL Studio MCP Server",
+    description:
+      "An MCP server for FL Studio that lets AI tools interact with your DAW, speeding up common production workflows.",
+    links: [
+      { icon: <FaGithub />, url: "https://github.com/karl-andres/fl-studio-mcp", label: "GitHub" },
+    ],
+    tech: ["Python", "MCP", "FL Studio"],
   },
   {
     title: "TuneSpy",
-    description: "Fullstack project utilizing an existing deep learning model for musical chord recognition",
+    description: "Fullstack project utilizing an existing deep learning model for musical chord recognition.",
     links: [
       { icon: <FaGithub />, url: "https://github.com/karl-andres/TuneSpy", label: "GitHub" },
     ],
@@ -26,22 +46,18 @@ const projects = [
   },
   {
     title: "ChordCaster",
-    description: "An Arduino-based device that controls a DFPlayer Mini MP3 module to play songs, adjust volume, and modify tempo using physical buttons.",
+    description:
+      "An Arduino-based device that controls a DFPlayer Mini MP3 module to play songs, adjust volume, and modify tempo using physical buttons.",
     links: [
-      { icon: <FaGithub />, url: "https://github.com/karl-andres/ChordCaster", label: "Github" },
-      { icon: <FaExternalLinkAlt />, url: "https://root-spleen-f5f.notion.site/Project-Three-ChordCaster-1c9adbb3a79e81149a06c027c8d5b576", label: "External"}
+      { icon: <FaGithub />, url: "https://github.com/karl-andres/ChordCaster", label: "GitHub" },
+      {
+        icon: <FaExternalLinkAlt />,
+        url: "https://root-spleen-f5f.notion.site/Project-Three-ChordCaster-1c9adbb3a79e81149a06c027c8d5b576",
+        label: "Project writeup",
+      },
     ],
-    tech: ["C++ (Arduino)"]
+    tech: ["C++ (Arduino)"],
   },
-  {
-    title: "Musica",
-    description: "AI Music Generation SaaS that generates original music and cover art from text prompts",
-    links: [
-      { icon: <FaGithub />, url: "https://github.com/karl-andres/music-generation-app", label: "Github" },
-      { icon: <FaExternalLinkAlt />, url: "https://music-generation-app-nine.vercel.app/", label: "External" },
-    ],
-    tech: ["Next.js", "AWS", "Modal", "Inngest",  "PostgreSQL with Prisma ORM"]
-  }
 ];
 
 const menuLinks = ["Home", "Projects", "About", "Contact"];
@@ -84,7 +100,7 @@ export default function Projects() {
         <div>PROJECTS</div>
         <button className="absolute right-8 hover:cursor-pointer" onClick={toggleMenu}>{btnText}</button>
       </header>
-      <div className="flex flex-col justify-center m-0 min-h-screen w-screen bg-transparent py-[120px] px-24">
+      <div className="flex flex-col justify-center m-0 min-h-screen w-screen bg-transparent py-[120px] px-4 md:px-24">
         <div className="flex items-center justify-center shrink">
           <div ref={menuWrapRef} className="fixed top-0 bottom-0 right-0 h-screen min-w-[30rem] w-auto bg-zinc-900/98 z-50 rounded-l-2xl">
             <div className="flex flex-col items-stretch justify-start py-20 bg-transparent">

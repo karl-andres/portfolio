@@ -45,8 +45,8 @@ export default function About() {
       lastIndexRef.current === null
         ? -1
         : index > lastIndexRef.current
-        ? -1
-        : 1;
+          ? -1
+          : 1;
     lastIndexRef.current = index;
     const spans = e.currentTarget.querySelectorAll(".menu-link-text");
     gsap.killTweensOf(spans);
@@ -88,21 +88,50 @@ export default function About() {
           {/* Writing Section */}
           <div className="w-full md:w-2/3 flex flex-col gap-8">
             <section>
-              <h1 className="mb-2 text-3xl md:text-5xl tracking-tighter">/ about me</h1>
+              <h1 className="mb-6 text-2xl md:text-5xl tracking-tighter">/ about me</h1>
               <p className="text-lg md:text-2xl tracking-tight mb-4">
-                Hi, I&apos;m Karl, a <span className="font-semibold text-cyan-200">software engineer</span> and student at{" "}
-                <Link rel="noreferrer noopener" className="font-bold text-cyan-200" href="https://www.mcmaster.ca/">McMaster University</Link>.
-                I love breaking down complex problems and building innovative solutions.
+                Hi, I&apos;m Karl, a{" "}
+                <span className="font-semibold text-cyan-200">software engineer</span> and student at{" "}
+                <Link
+                  rel="noreferrer noopener"
+                  className="font-bold text-cyan-200"
+                  href="https://www.mcmaster.ca/"
+                >
+                  McMaster University
+                </Link>
+                . I love breaking down complex problems and building end-to-end products—from fast UIs to reliable
+                backend systems.
               </p>
               <p className="text-lg md:text-2xl tracking-tight mb-4">
-                Outside of coding, I enjoy playing guitar, video games, and watching anime.
+                I&apos;m especially excited about the intersection of{" "}
+                <span className="font-semibold text-cyan-200">AI, audio, and creative tools</span>. Lately I&apos;ve
+                been building AI-powered music generation experiences and tools that plug directly into FL Studio to
+                streamline music production.
+              </p>
+              <p className="text-lg md:text-2xl tracking-tight mb-4">
+                Outside of tech, I&apos;m a <span className="font-semibold text-cyan-200">music producer</span> and
+                guitarist. When I&apos;m not coding, you&apos;ll usually find me writing tracks, playing games, or
+                watching anime.
               </p>
             </section>
-            <section>
+            {/* <section>
               <h2 className="mb-2 text-2xl md:text-4xl tracking-tighter">/ technical skills</h2>
               <p className="text-lg md:text-2xl tracking-tight mb-4">Technologies I&apos;ve worked with:</p>
               <div className="flex flex-wrap gap-3">
-                {["Javascript", "Python", "Java", "Next.js", "React", "PostgreSQL"].map((tech, idx) => (
+                {[
+                  "TypeScript",
+                  "Python",
+                  "C++",
+                  "Next.js",
+                  "React",
+                  "Node.js",
+                  "FastAPI",
+                  "PostgreSQL",
+                  "Prisma ORM",
+                  "AWS",
+                  "Tailwind CSS",
+                  "Git",
+                ].map((tech, idx) => (
                   <span
                     key={idx}
                     className="bg-zinc-700 text-zinc-200 px-4 py-2 rounded-full text-base md:text-lg font-medium"
@@ -111,7 +140,7 @@ export default function About() {
                   </span>
                 ))}
               </div>
-            </section>
+            </section> */}
           </div>
           {/* Menu-wrap */}
           <div ref={menuWrapRef} className="fixed top-0 bottom-0 right-0 h-screen min-w-[30rem] w-auto bg-zinc-900/98 z-50 rounded-l-2xl">

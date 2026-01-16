@@ -1,6 +1,7 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { unstable_ViewTransition as ViewTransition } from 'react'
+import SilkBackground from '@/components/SilkBackground'
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <body
           className={`${montserrat.className} antialiased block m-0 p-0 font-normal text-base leading-none rounded-none outline-none cursor-auto text-white`}
         >
+          <SilkBackground />
           {children}
         </body>
       </html>
