@@ -123,7 +123,7 @@ export default function Home() {
               hey, karl here
             </h1>
             <p className="text-zinc-200 text-base sm:text-lg md:text-xl max-w-xl hero-subtext">
-              Hi! I'm a software engineer that's based in Ontario{" "}
+              Hi! I'm a software engineer that&apos;s based in Ontario{" "}
               <span className="hidden sm:inline">with a special interest in AI, data, and music.</span>
             </p>
             {/* <p className="text-zinc-300 text-sm sm:text-base md:text-lg hero-subtext">
